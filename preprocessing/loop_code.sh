@@ -13,7 +13,7 @@ for N in {1..4}; do
         BARCODE=${INDEX_BARCODES[$INDEX_NUMBER]}
         OUTPUT_FILE_R1=${SAMPLE_ID}_${BARCODE}_L00${N}_R1.fastq.gz
         OUTPUT_FILE_R2=${SAMPLE_ID}_${BARCODE}_L00${N}_R2.fastq.gz
-        bash attachBarcodes.sh $INPUT_FILE_R1 $OUTPUT_FILE_R1 $BARCODE
-        bash attachBarcodes.sh $INPUT_FILE_R2 $OUTPUT_FILE_R2 $BARCODE
+        python convertHeaders.py -i ./MGI/$INPUT_FILE_R1 -o ./MGI/converted_MGI/$OUTPUT_FILE_R1 -b $BARCODE
+        python convertHeaders.py -i ./MGI/$INPUT_FILE_R2 -o ./MGI/converted_MGI/$OUTPUT_FILE_R2 -b $BARCODE
     done
 done
